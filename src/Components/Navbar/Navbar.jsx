@@ -28,7 +28,6 @@ Navbar.propTypes = {
       title: PropTypes.string.isRequired,
     })
   ),
-  x: PropTypes.string.isRequired,
 };
 
 export default Navbar;
