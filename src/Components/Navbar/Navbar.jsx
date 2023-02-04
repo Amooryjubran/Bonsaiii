@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import AppsIcon from "@mui/icons-material/Apps";
-import { Routes } from "../../Routes/routes";
-import PropTypes from "prop-types";
 import "./style.css";
+import { useQuery } from "../../hooks/useQuery";
 const Navbar = () => {
+  const { data: Routes } = useQuery("routes");
   return (
     <nav>
       <div className="navList">
         {Routes.map((route, index) => (
-          <Link to={route.path} key={index}>
-            <h1>{route.title}</h1>
+          <Link to={route.path === "Bonsaiii" ? "/" : route.path} key={index}>
+            <h1>{route.path}</h1>
           </Link>
         ))}
       </div>
@@ -20,14 +20,6 @@ const Navbar = () => {
       </div>
     </nav>
   );
-};
-Navbar.propTypes = {
-  Routes: PropTypes.objectOf(
-    PropTypes.shape({
-      path: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-    })
-  ),
 };
 
 export default Navbar;
