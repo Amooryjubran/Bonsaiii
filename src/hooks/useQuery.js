@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "../api/index.js";
+import { db } from "@/api/index.js";
 export const useQuery = (query) => {
   const [data, setData] = useState([]);
 

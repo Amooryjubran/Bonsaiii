@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import AppsIcon from "@mui/icons-material/Apps";
 import "./style.css";
-import { useQuery } from "../../hooks/useQuery";
+import { useQuery } from "@/hooks/useQuery";
 const Navbar = () => {
   const { data: Routes } = useQuery("routes");
   return (
