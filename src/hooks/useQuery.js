@@ -15,7 +15,9 @@ export const useQuery = (query) => {
   };
 
   useEffect(() => {
-    fetchPost();
+    setTimeout(() => {
+      fetchPost();
+    }, 1000);
   }, []);
 
   return { data };

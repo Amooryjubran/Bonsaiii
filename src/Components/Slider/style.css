@@ -1,12 +1,27 @@
+.plantCard {
+  position: relative;
+  height: 0;
+  padding: 0 0 150%;
+  background-position: center 100%;
+  background-size: 110%;
+  border-radius: 5px;
+  background-size: cover;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+}
 .slider {
   display: block;
   position: relative;
   touch-action: pan-y;
   user-select: none;
-  margin: 0 auto;
+  margin: 0 0 0 auto;
   padding-top: 50px;
   width: 100%;
-  max-width: 80%;
+  max-width: 70%;
+}
+.slick-track {
+  display: flex;
+  gap: 20px;
 }
 .slick-arrow {
   position: absolute;
@@ -51,10 +66,8 @@
 .slick-prev {
   left: 3% !important;
   z-index: 1;
-  /* background: red; */
 }
 .slick-next {
   right: 3% !important;
   z-index: 1;
-  /* background: red; */
 }
