@@ -3,7 +3,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import AppsIcon from "@mui/icons-material/Apps";
 import "./style.css";
 import { useQuery } from "@/hooks/useQuery";
-import Skeleton from "../../utils/Skeleton";
+import Skeleton from "@/utils/Skeleton";
 const Navbar = () => {
   const { data: Routes } = useQuery("routes");
   return (

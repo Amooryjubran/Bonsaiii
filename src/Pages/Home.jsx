@@ -1,5 +1,5 @@
-import Slider from "@/Components/Slider/Slider";
 import { Fragment } from "react";
+import Slider from "@/Components/Slider/Slider";
 
 export default function Home() {
   return (
