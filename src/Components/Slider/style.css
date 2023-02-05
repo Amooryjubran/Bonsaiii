@@ -71,3 +71,9 @@
   right: 3% !important;
   z-index: 1;
 }
+.slick-next:focus,
+.slick-next:hover,
+.slick-prev:focus,
+.slick-prev:hover {
+  background-color: white;
+}
