@@ -1,5 +1,12 @@
 .plantCard {
   position: relative;
+  cursor: pointer;
+}
+.plantCard:hover .plantCardDescreption {
+  opacity: 1;
+}
+.plantCardContainer {
+  position: relative;
   height: 0;
   padding: 0 0 150%;
   background-position: center 100%;
@@ -8,6 +15,26 @@
   background-size: cover;
   background-size: auto 100%;
   background-repeat: no-repeat;
+}
+.plantCardDescreption {
+  opacity: 0.9;
+  position: absolute;
+  bottom: 0;
+  background-color: white;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  height: 30%;
+  width: 80%;
+  padding: 0 20px;
+}
+.plantCardDescreption > h1 {
+  font-size: 16px;
+}
+.plantCardDescreption > p {
+  font-size: 12px;
 }
 .slider {
   display: block;
