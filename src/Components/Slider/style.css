@@ -42,7 +42,6 @@
   touch-action: pan-y;
   user-select: none;
   margin: 0 0 0 auto;
-  padding-top: 50px;
   width: 100%;
   max-width: 70%;
 }

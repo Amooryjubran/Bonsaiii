@@ -1,0 +1,26 @@
+.SliderContainer {
+  position: relative;
+  padding-top: 50px;
+  display: flex;
+  gap: 10px;
+}
+.sliderCategories {
+  position: absolute;
+  left: 27%;
+  top: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  height: 20%;
+  opacity: 0.8;
+}
+.sliderCategories > a {
+  transform: rotate(-90deg);
+  margin: 0 auto;
+  text-decoration: none;
+  color: black;
+}
+.skeletonContainer {
+  margin: 0 0 0 30px;
+}
