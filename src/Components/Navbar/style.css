@@ -2,6 +2,11 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 20px 40px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: transparent;
+  z-index: 99;
 }
 .navList,
 .navIcons {
