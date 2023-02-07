@@ -4,11 +4,17 @@
   background-repeat: no-repeat;
   background-size: 100% 100%;
   position: relative;
-  background-size: cover;
-  background-position: center center;
+  background-size: auto;
+  background-position-x: left;
   display: flex;
   min-height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-position-y: 60%;
+}
+.heroBanner > div > div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }

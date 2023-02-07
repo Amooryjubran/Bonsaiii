@@ -1,13 +1,23 @@
+import { Skeleton } from "@mui/material";
+import Breadcrumbs from "@/utils/Breadcrumbs";
 import "./herobanner.css";
 export default function HeroBanner({ props }) {
-  console.log(props);
   return (
     <div className="heroBanner">
-      <div style={{ backgroundImage: `url(${props?.img})` }}>
-        <div>
-          <h2>{props?.title}</h2>
+      {props ? (
+        <div
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)),url(${props?.img})`,
+          }}
+        >
+          <div>
+            <h2>{props?.title}</h2>
+            <Breadcrumbs />
+          </div>
         </div>
-      </div>
+      ) : (
+        <Skeleton height="700px" width="100%" />
+      )}
     </div>
   );
 }

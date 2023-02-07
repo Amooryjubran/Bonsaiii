@@ -1,0 +1,13 @@
+.crumb {
+  display: flex;
+  gap: 10px;
+  text-align: center;
+  justify-content: center;
+}
+.crumb > a {
+  text-decoration: none;
+  color: #301934;
+}
+.crumb > a:first-child {
+  color: #36454f;
+}
