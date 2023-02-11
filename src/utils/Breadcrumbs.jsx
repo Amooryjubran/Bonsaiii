@@ -10,11 +10,17 @@ export default function Breadcrumbs() {
       currentLink += `/${crumb}`;
       return (
         <div className="crumb" key={crumb}>
-          <NavLink to="/">Home</NavLink>/
-          <NavLink to={currentLink}>{crumb}</NavLink>
+          <NavLink to={currentLink}>
+            {crumb}
+            <span>/</span>
+          </NavLink>
         </div>
       );
     });
 
-  return <div className="breadcrumbs">{crumbs}</div>;
+  return (
+    <div className="breadcrumbs">
+      <NavLink to="/">Home</NavLink>/{crumbs}
+    </div>
+  );
 }

@@ -1,3 +1,11 @@
+.breadcrumbs {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+a {
+  width: auto !important;
+}
 .crumb {
   display: flex;
   gap: 10px;
@@ -7,7 +15,11 @@
 .crumb > a {
   text-decoration: none;
   color: #301934;
+  width: auto;
 }
 .crumb > a:first-child {
   color: #36454f;
+}
+.crumb:last-child > a > span {
+  display: none;
 }
