@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useQuery } from "@/hooks/useQuery";
+import useClickOutside from "@/hooks/useClickOutside";
 import "./style.css";
 import HeroBanner from "@/Components/ui/HeroBanner";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -8,12 +9,14 @@ import ProductCard from "@/Components/ui/ProductCard";
 import DropDownModal from "@/Components/ui/DropDownModal";
 import ProductSideBar from "@/Components/ui/ProductSideBar";
 export default function Shop() {
+  const ref = useRef();
   const { data } = useQuery("shop_hero_banner");
   const { data: plants } = useQuery("plants");
   const { data: filter } = useQuery("filter");
   const [modal, setModal] = useState(false);
   const [filtered, setFiltered] = useState();
   const [render, setRender] = useState(false);
+  useClickOutside(ref, () => setModal(false));
   const [filterBtn, setFilterBtn] = useState("Sort by prodcuts");
 
   const handleFilter = (arg) => {
@@ -51,6 +54,7 @@ export default function Shop() {
                 </button>
                 {modal && (
                   <DropDownModal
+                    innerRef={ref}
                     props={filter[0].filter}
                     handleFilter={handleFilter}
                     setModal={setModal}
@@ -70,10 +74,9 @@ export default function Shop() {
           </div>
           <div className="productList">
             {!!plants.length && filtered
-              ? filtered.map((item) => {
-                  console.log(item);
-                  return <ProductCard props={item} key={item.id} />;
-                })
+              ? filtered.map((item) => (
+                  <ProductCard props={item} key={item.id} />
+                ))
               : Array(6)
                   .fill(true)
                   .map((_, i) => (

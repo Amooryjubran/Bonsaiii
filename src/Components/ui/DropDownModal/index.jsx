@@ -4,9 +4,10 @@ export default function DropDownModal({
   handleFilter,
   setModal,
   setFilterBtn,
+  innerRef,
 }) {
   return (
-    <div className="modal">
+    <div className="modal" ref={innerRef}>
       <ul>
         {props.map((btn, index) => (
           <li
