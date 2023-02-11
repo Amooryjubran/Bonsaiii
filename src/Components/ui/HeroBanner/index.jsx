@@ -1,4 +1,4 @@
-import { Skeleton } from "@mui/material";
+import Skeleton from "@/utils/Skeleton";
 import Breadcrumbs from "@/utils/Breadcrumbs";
 import "./herobanner.css";
 export default function HeroBanner({ props }) {
@@ -16,7 +16,7 @@ export default function HeroBanner({ props }) {
           </div>
         </div>
       ) : (
-        <Skeleton height="700px" width="100%" />
+        <Skeleton height="500px" width="100%" style={{ marginTop: "-60px" }} />
       )}
     </div>
   );

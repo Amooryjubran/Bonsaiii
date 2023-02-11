@@ -20,6 +20,9 @@
   margin: 0 auto;
   text-decoration: none;
   color: black;
+  text-align: center;
+  display: flex;
+  align-items: center;
 }
 .skeletonContainer {
   margin: 0 0 0 30px;

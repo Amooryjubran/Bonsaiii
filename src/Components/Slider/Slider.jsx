@@ -3,7 +3,6 @@ import Skeleton from "../../utils/Skeleton";
 import ImageCard from "../ui/ImageCard";
 import "./style.css";
 export default function Slide({ props }) {
-  console.log(props);
   var settings = {
     dots: false,
     infinite: false,
