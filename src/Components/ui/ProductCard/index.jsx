@@ -35,8 +35,8 @@ export default function ProductCard(props) {
         />
 
         <div className="productDiscount">
-          <span className={discount && "discounted"}>{price}</span>
-          {discount && <span>{discount}</span>}
+          <span className={discount && "discounted"}>${price}</span>
+          {discount && <span>${discount}</span>}
         </div>
       </div>
     </Link>

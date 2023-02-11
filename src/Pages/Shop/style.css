@@ -19,6 +19,9 @@
   align-self: flex-end;
   gap: 20px;
 }
+.productSortContainer > div {
+  position: relative;
+}
 .productSortBtn {
   display: flex;
   align-items: center;
