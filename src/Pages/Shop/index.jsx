@@ -41,7 +41,7 @@ export default function Shop() {
         <div className="productSortContainer">
           {!!plants.length ? (
             <>
-              <span>35 products</span>
+              <span>{plants.length} Products</span>
               <div>
                 <button
                   onClick={() => {
