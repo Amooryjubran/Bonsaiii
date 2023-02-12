@@ -1,0 +1,38 @@
+.sideBarFilter {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid lightgray;
+  padding: 5px 0;
+  margin: 5px 0;
+}
+.sideBarFilter > button {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.sideBarFilter > button > svg {
+  transition: all 0.2s;
+}
+.sideBarFilter > button > h1 {
+  color: black;
+  font-size: 16px;
+  font-weight: 400;
+}
+.sideBarFilter ul {
+  list-style: none;
+}
+.sideBarFilter li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.arrow {
+  transform: rotate(180deg);
+}

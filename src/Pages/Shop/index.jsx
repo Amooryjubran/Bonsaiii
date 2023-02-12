@@ -3,6 +3,7 @@ import { useQuery } from "@/hooks/useQuery";
 import useClickOutside from "@/hooks/useClickOutside";
 import "./style.css";
 import HeroBanner from "@/Components/ui/HeroBanner";
+import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Skeleton from "@/utils/Skeleton";
 import ProductCard from "@/Components/ui/ProductCard";
@@ -13,11 +14,13 @@ export default function Shop() {
   const { data } = useQuery("shop_hero_banner");
   const { data: plants } = useQuery("plants");
   const { data: filter } = useQuery("filter");
+  const { data: sidebarFilter } = useQuery("sidebar_filter");
   const [modal, setModal] = useState(false);
   const [filtered, setFiltered] = useState();
   const [render, setRender] = useState(false);
-  useClickOutside(ref, () => setModal(false));
+  const [sidebar, setSidebar] = useState(true);
   const [filterBtn, setFilterBtn] = useState("Sort by prodcuts");
+  useClickOutside(ref, () => setModal(false));
 
   const handleFilter = (arg) => {
     if (arg.includes("name"))
@@ -42,6 +45,14 @@ export default function Shop() {
           {!!plants.length ? (
             <>
               <span>{plants.length} Products</span>
+              <button
+                onClick={() =>
+                  !sidebar ? setSidebar(true) : setSidebar(false)
+                }
+                className="sideBarBtn"
+              >
+                <MenuOpenIcon />
+              </button>
               <div>
                 <button
                   onClick={() => {
@@ -69,10 +80,14 @@ export default function Shop() {
         </div>
 
         <div className="productSection">
-          <div className="productFilter">
-            <ProductSideBar />
+          <div className={sidebar ? `productFilter` : "productFilterClose"}>
+            {sidebar &&
+              sidebarFilter &&
+              sidebarFilter.map((filter, index) => (
+                <ProductSideBar key={index} props={filter} />
+              ))}
           </div>
-          <div className="productList">
+          <div className={`productList ${!sidebar ? "Full" : ""}`}>
             {!!plants.length && filtered
               ? filtered.map((item) => (
                   <ProductCard props={item} key={item.id} />
