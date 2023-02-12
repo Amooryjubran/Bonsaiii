@@ -8,6 +8,8 @@
   position: absolute;
   left: 27%;
   top: 7%;
+}
+.sliderCategories > a {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,7 +17,7 @@
   height: 20%;
   opacity: 0.8;
 }
-.sliderCategories > a {
+.sliderCategories > a > span {
   transform: rotate(-90deg);
   margin: 0 auto;
   text-decoration: none;

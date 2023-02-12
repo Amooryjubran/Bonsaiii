@@ -14,8 +14,10 @@ export default function Home() {
         <div className="sliderCategories">
           {!!data.length ? (
             <>
-              <AppsIcon />
-              <Link to="/shop">Categories</Link>
+              <Link to="/shop">
+                <AppsIcon />
+                <span>Categories</span>
+              </Link>
             </>
           ) : (
             <div className="skeletonContainer">
