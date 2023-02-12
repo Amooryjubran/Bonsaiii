@@ -5,25 +5,18 @@ footer {
   gap: 20px;
   max-width: 70%;
   width: 100%;
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  text-align: center;
-}
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.445);
-  margin: 1em 0;
-  padding: 0;
-  width: 100%;
+  margin: 0 auto;
+  padding: 40px 0;
 }
 
-.dot:before {
-  content: " \25CF";
-  font-size: 10px;
-  color: rgba(0, 0, 0, 0.48);
+footer > div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+footer > div > a > svg {
+  transform: scale(0.8);
 }
