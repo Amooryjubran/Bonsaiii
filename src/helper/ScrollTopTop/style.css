@@ -1,0 +1,13 @@
+.scrollToTop {
+  z-index: 2222;
+  bottom: 20px;
+  right: 5%;
+  position: fixed;
+  background-color: white;
+  box-shadow: 1px 1px 1px #ccc;
+  padding: 10px;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}

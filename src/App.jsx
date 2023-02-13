@@ -5,6 +5,7 @@ import Footer from "@/Components/Layout/Footer";
 import Home from "@/Pages/Home";
 import Shop from "@/Pages/Shop";
 import Product from "@/Pages/Product";
+import ScrollToTop from "@/helper/ScrollTopTop";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/Shop/:product" element={<Product />} />
       </Routes>
       <Footer />
+      <ScrollToTop />
     </Fragment>
   );
 }
