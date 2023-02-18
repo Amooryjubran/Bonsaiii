@@ -31,13 +31,22 @@ export default function Shop() {
       setFiltered(
         plants.sort((a, b) => parseFloat(a.price) - parseFloat(b.price))
       );
+    if (arg === "Discounted")
+      setFiltered(plants.filter((value) => value.discount));
+    if (arg === "Not-Discounted")
+      setFiltered(plants.filter((value) => !value.discount));
+    if (arg === "Kids" || arg === "Pets")
+      setFiltered(plants.filter((value) => value.petFriendly));
+    if (arg === "reset") setFiltered(plants);
   };
+
   useEffect(() => {
     if (!!plants.length) {
       setFiltered(plants);
       setRender(true);
     }
-  }, [filtered, render, plants]);
+  }, [render, plants]);
+
   return (
     <div className="productContainer">
       <HeroBanner props={data[0]} />
@@ -86,7 +95,12 @@ export default function Shop() {
               <span key={index}>{value}</span>
             ))}
             <div>|</div>
-            <button onClick={() => setFilteredProducts([])}>
+            <button
+              onClick={() => {
+                setFilteredProducts([]);
+                setFiltered(plants);
+              }}
+            >
               <ClearIcon />
             </button>
           </div>
@@ -101,6 +115,7 @@ export default function Shop() {
                   filter={filter}
                   setFilteredProducts={setFilteredProducts}
                   filteredProducts={filteredProducts}
+                  handleFilter={handleFilter}
                 />
               ))}
           </div>

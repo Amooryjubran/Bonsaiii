@@ -6,11 +6,12 @@ export default function ProductSidebar({
   filter,
   setFilteredProducts,
   filteredProducts,
+  handleFilter,
 }) {
   const [modal, setModal] = useState(false);
   const { title, value } = filter;
 
-  const handleChange = (event, x) => {
+  const handleChange = (event) => {
     const { checked, value } = event.currentTarget;
     setFilteredProducts((prev) =>
       checked ? [...prev, value] : prev.filter((val) => val !== value)
@@ -31,6 +32,7 @@ export default function ProductSidebar({
               values={values}
               handleChange={handleChange}
               filteredProducts={filteredProducts}
+              handleFilter={handleFilter}
             />
           ))}
         </ul>

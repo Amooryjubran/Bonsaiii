@@ -1,5 +1,10 @@
 import { useId } from "react";
-export default function List({ values, handleChange, filteredProducts }) {
+export default function List({
+  values,
+  handleChange,
+  filteredProducts,
+  handleFilter,
+}) {
   const id = useId();
   return (
     <li key={id}>
@@ -8,7 +13,10 @@ export default function List({ values, handleChange, filteredProducts }) {
         id={values}
         value={values}
         checked={filteredProducts.some((val) => val === values)}
-        onChange={(e) => handleChange(e, id)}
+        onChange={(e) => {
+          handleChange(e);
+          e.target.checked ? handleFilter(values) : handleFilter("reset");
+        }}
       />
       <label htmlFor={values}>{values}</label>
     </li>

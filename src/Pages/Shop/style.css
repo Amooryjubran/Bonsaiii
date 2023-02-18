@@ -80,10 +80,10 @@
 
 .productFilterContainer {
   display: flex;
+  flex-wrap: wrap;
   transition: all 0.5s;
   width: 60%;
   margin: 0 0 auto;
-  justify-content: unset;
   gap: 20px;
 }
 .productFilterContainer > span {
