@@ -32,6 +32,10 @@
   gap: 10px;
   padding: 10px;
 }
+.sideBarFilter li > label,
+.sideBarFilter li > input {
+  cursor: pointer;
+}
 
 .arrow {
   transform: rotate(180deg);

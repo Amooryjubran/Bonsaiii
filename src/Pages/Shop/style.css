@@ -77,3 +77,41 @@
 .sideBarBtn:hover {
   color: black;
 }
+
+.productFilterContainer {
+  display: flex;
+  transition: all 0.5s;
+  width: 60%;
+  margin: 0 0 auto;
+  justify-content: unset;
+  gap: 20px;
+}
+.productFilterContainer > span {
+  padding: 5px 10px;
+  border: 1px solid lightgray;
+  background-color: whitesmoke;
+  color: rgb(71, 71, 71);
+  border-radius: 20px;
+  font-size: 12px;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.productFilterContainer > div {
+  color: rgba(128, 128, 128, 0.588);
+}
+.productFilterContainer > button {
+  padding: 5px 10px;
+  border: 1px solid lightgray;
+  background-color: whitesmoke;
+  color: rgb(71, 71, 71);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.productFilterContainer > button > svg {
+  font-size: 12px;
+}

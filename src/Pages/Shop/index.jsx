@@ -4,6 +4,7 @@ import useClickOutside from "@/hooks/useClickOutside";
 import "./style.css";
 import HeroBanner from "@/Components/ui/HeroBanner";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
+import ClearIcon from "@mui/icons-material/Clear";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Skeleton from "@/utils/Skeleton";
 import ProductCard from "@/Components/ui/ProductCard";
@@ -20,6 +21,7 @@ export default function Shop() {
   const [render, setRender] = useState(false);
   const [sidebar, setSidebar] = useState(true);
   const [filterBtn, setFilterBtn] = useState("Sort by prodcuts");
+  const [filteredProducts, setFilteredProducts] = useState([]);
   useClickOutside(ref, () => setModal(false));
 
   const handleFilter = (arg) => {
@@ -78,13 +80,28 @@ export default function Shop() {
             <Skeleton width="250px" />
           )}
         </div>
-
+        {!!filteredProducts.length && (
+          <div className="productFilterContainer">
+            {filteredProducts.map((value, index) => (
+              <span key={index}>{value}</span>
+            ))}
+            <div>|</div>
+            <button onClick={() => setFilteredProducts([])}>
+              <ClearIcon />
+            </button>
+          </div>
+        )}
         <div className="productSection">
           <div className={sidebar ? `productFilter` : "productFilterClose"}>
             {sidebar &&
               sidebarFilter &&
               sidebarFilter.map((filter, index) => (
-                <ProductSideBar key={index} props={filter} />
+                <ProductSideBar
+                  key={index}
+                  filter={filter}
+                  setFilteredProducts={setFilteredProducts}
+                  filteredProducts={filteredProducts}
+                />
               ))}
           </div>
           <div className={`productList ${!sidebar ? "Full" : ""}`}>

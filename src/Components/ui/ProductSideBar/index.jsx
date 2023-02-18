@@ -1,9 +1,22 @@
 import { useState } from "react";
 import "./style.css";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-export default function ProductSidebar({ props }) {
+import List from "./List";
+export default function ProductSidebar({
+  filter,
+  setFilteredProducts,
+  filteredProducts,
+}) {
   const [modal, setModal] = useState(false);
-  const { title, value } = props;
+  const { title, value } = filter;
+
+  const handleChange = (event, x) => {
+    const { checked, value } = event.currentTarget;
+    setFilteredProducts((prev) =>
+      checked ? [...prev, value] : prev.filter((val) => val !== value)
+    );
+  };
+
   return (
     <div className="sideBarFilter">
       <button onClick={() => (!modal ? setModal(true) : setModal(false))}>
@@ -13,10 +26,12 @@ export default function ProductSidebar({ props }) {
       {modal && (
         <ul>
           {value.map((values, index) => (
-            <li key={index}>
-              <input type="checkbox" id={values} value={values} />
-              <label htmlFor={values}>{values}</label>
-            </li>
+            <List
+              key={index}
+              values={values}
+              handleChange={handleChange}
+              filteredProducts={filteredProducts}
+            />
           ))}
         </ul>
       )}
