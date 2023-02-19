@@ -11,8 +11,7 @@ export default function Breadcrumbs() {
       return (
         <div className="crumb" key={crumb}>
           <NavLink to={currentLink}>
-            {crumb}
-            <span>/</span>
+            {crumb} <span>/</span>
           </NavLink>
         </div>
       );

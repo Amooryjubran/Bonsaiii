@@ -49,7 +49,7 @@ export default function Shop() {
 
   return (
     <div className="productContainer">
-      <HeroBanner props={data[0]} />
+      <HeroBanner props={data[0]} breadCrumbs={true} />
       <h1>Plants</h1>
       <div className="productWrapper">
         <div className="productSortContainer">

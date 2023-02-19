@@ -1,0 +1,134 @@
+.productPage {
+  width: 100%;
+}
+.sliderContainer {
+  max-width: 1900px;
+  position: relative;
+  margin-top: 125px;
+  display: flex;
+  gap: 10px;
+}
+
+.heroBanner {
+  height: auto;
+}
+.productPage > .heroBanner > div {
+  max-height: 400px;
+}
+.productPage > div > div {
+  background-size: cover;
+  background-position-y: auto;
+}
+.productPageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 40px;
+  margin: 0 auto;
+}
+.productPageContainer > .breadcrumbs {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 5px;
+  align-self: start;
+  font-size: 14px;
+  margin: 50px 0;
+}
+
+.productPageContent {
+  display: flex;
+  gap: 40px;
+  width: 100%;
+  margin: 30px auto;
+}
+.productPageContent > div {
+  width: 50%;
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.productPayment {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 20px;
+}
+.productInfoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.productBuy {
+  background: black;
+  outline: none;
+  color: white;
+  border: 1px solid transparent;
+  padding: 10px 0;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.productBuy:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+.productWishlist {
+  background: transparent;
+  outline: none;
+  border: none;
+  width: fit-content;
+}
+.productWishlist > svg {
+  color: black;
+}
+
+/* --- Carousel --- */
+.carousel {
+  background-color: transparent !important;
+  height: 500px !important;
+  width: 50% !important;
+  gap: 10px;
+}
+.carousel ._ZTBlf {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  cursor: pointer;
+  color: transparent;
+  display: block;
+  border: 0;
+  z-index: 11;
+  background-color: white;
+  box-shadow: 0 2px 20px -2px rgb(0 0 0 / 8%);
+  opacity: 1;
+  background-color: white;
+}
+.carousel svg {
+  display: none;
+}
+.carousel ._ZTBlf::before {
+  position: absolute;
+  content: url("https://cdn.iconscout.com/icon/free/png-256/right-arrow-4184373-3738259.png?f=webp&w=20");
+  top: 15px;
+  left: 15px;
+  height: 10px;
+  width: 10px;
+}
+.carousel ._3lwW_._1cqA3 > ._ZTBlf::before {
+  position: absolute;
+  content: url("https://cdn.iconscout.com/icon/free/png-256/right-arrow-4184373-3738259.png?f=webp&w=20");
+  transform: rotate(180deg);
+  top: 25px;
+  left: 24px;
+  height: 10px;
+  width: 10px;
+}
+.carousel ._-LJ2W {
+  justify-content: center;
+  gap: 20px;
+}
