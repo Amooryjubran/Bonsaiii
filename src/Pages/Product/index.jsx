@@ -11,6 +11,7 @@ export default function Product() {
   const path = product.replace(/\+/g, " ");
   let plant = {};
   if (!!data.length) filterArray(data, path, plant);
+
   return (
     <div className="productPage">
       <HeroBanner props={plant} breadCrumbs={false} />

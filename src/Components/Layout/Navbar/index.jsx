@@ -1,11 +1,21 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
-import AppsIcon from "@mui/icons-material/Apps";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import "./style.css";
 import { useQuery } from "@/hooks/useQuery";
 import Skeleton from "@/utils/Skeleton";
+import useCart from "@/store/store";
+
 const Navbar = () => {
   const { data: Routes } = useQuery("routes");
+  const totalqty = useCart((state) => state.totalqty);
+  const [totalQty, setTotalQty] = useState();
+
+  useEffect(() => {
+    setTotalQty(totalqty);
+  }, [totalqty]);
+
   return (
     <nav>
       <div className="navList">
@@ -21,7 +31,10 @@ const Navbar = () => {
       </div>
       <div className="navIcons">
         <SearchIcon />
-        <AppsIcon />
+        <div className="cartIcon">
+          <ShoppingCartIcon />
+          {totalQty}
+        </div>
       </div>
     </nav>
   );
