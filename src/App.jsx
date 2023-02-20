@@ -6,6 +6,7 @@ import Home from "@/Pages/Home";
 import Shop from "@/Pages/Shop";
 import Product from "@/Pages/Product";
 import ScrollToTop from "@/helper/ScrollTopTop";
+import Scroller from "@/utils/Scroller";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       </Routes>
       <Footer />
       <ScrollToTop />
+      <Scroller />
     </Fragment>
   );
 }
