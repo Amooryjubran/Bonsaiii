@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import Slider from "@/components/Slider/Slider";
+import Slider from "@/Components/Slider/Slider";
 import { useQuery } from "../hooks/useQuery";
 import AppsIcon from "@mui/icons-material/Apps";
 import { Link } from "react-router-dom";

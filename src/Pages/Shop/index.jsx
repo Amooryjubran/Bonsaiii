@@ -2,14 +2,14 @@ import { useEffect, useState, useRef } from "react";
 import { useQuery } from "@/hooks/useQuery";
 import useClickOutside from "@/hooks/useClickOutside";
 import "./style.css";
-import HeroBanner from "@/components/ui/HeroBanner";
+import HeroBanner from "@/Components/ui/HeroBanner";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import ClearIcon from "@mui/icons-material/Clear";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Skeleton from "@/utils/Skeleton";
-import ProductCard from "@/components/ui/ProductCard";
-import DropDownModal from "@/components/ui/DropDownModal";
-import ProductSideBar from "@/components/ui/ProductSideBar";
+import ProductCard from "@/Components/ui/ProductCard";
+import DropDownModal from "@/Components/ui/DropDownModal";
+import ProductSideBar from "@/Components/ui/ProductSideBar";
 export default function Shop() {
   const ref = useRef();
   const { data } = useQuery("shop_hero_banner");

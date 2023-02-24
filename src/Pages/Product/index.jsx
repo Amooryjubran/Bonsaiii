@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 import "./style.css";
-import HeroBanner from "@/components/ui/HeroBanner";
+import HeroBanner from "@/Components/ui/HeroBanner";
 import { filterArray } from "@/utils/filterArray";
 import { useQuery } from "@/hooks/useQuery";
 import Breadcrumbs from "@/utils/Breadcrumbs";
-import ProductHeader from "@/components/ui/ProductHeader";
+import ProductHeader from "@/Components/ui/ProductHeader";
 export default function Product() {
   const { product } = useParams();
   const { data } = useQuery("plants");

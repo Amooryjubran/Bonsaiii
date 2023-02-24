@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
-import CartSidebar from "@/components/ui/CartSidebar";
+import CartSidebar from "@/Components/ui/CartSidebar";
 import { useQuery } from "@/hooks/useQuery";
 import Skeleton from "@/utils/Skeleton";
 import useCart from "@/store/store";
