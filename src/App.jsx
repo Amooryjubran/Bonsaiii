@@ -2,10 +2,10 @@ import { Fragment } from "react";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "@/Components/Layout/Navbar";
 import Footer from "@/Components/Layout/Footer";
-import Home from "@/pages/Home";
-import Shop from "@/pages/Shop";
-import Checkout from "@/pages/Checkout";
-import Product from "@/pages/Product";
+import Home from "@/Pages/Home";
+import Shop from "@/Pages/Shop";
+import Checkout from "@/Pages/Checkout";
+import Product from "@/Pages/Product";
 import ScrollToTop from "@/helper/ScrollTopTop";
 import Scroller from "@/utils/Scroller";
 
