@@ -1,21 +1,26 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import SearchIcon from "@mui/icons-material/Search";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useEffect, useState, useRef } from "react";
 import "./style.css";
+import { Link } from "react-router-dom";
+import CartSidebar from "@/components/ui/CartSidebar";
 import { useQuery } from "@/hooks/useQuery";
 import Skeleton from "@/utils/Skeleton";
 import useCart from "@/store/store";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import SearchIcon from "@mui/icons-material/Search";
+import useClickOutside from "@/hooks/useClickOutside";
 
 const Navbar = () => {
+  const ref = useRef();
+
   const { data: Routes } = useQuery("routes");
-  const totalqty = useCart((state) => state.totalqty);
   const [totalQty, setTotalQty] = useState();
+  const [cartBar, setCartBar] = useState(false);
+  const totalqty = useCart((state) => state.totalqty);
+  useClickOutside(ref, () => setCartBar(false));
 
   useEffect(() => {
     setTotalQty(totalqty);
   }, [totalqty]);
-
   return (
     <nav>
       <div className="navList">
@@ -31,11 +36,12 @@ const Navbar = () => {
       </div>
       <div className="navIcons">
         <SearchIcon />
-        <div className="cartIcon">
+        <button className="cartIcon" onClick={() => setCartBar(true)}>
           <ShoppingCartIcon />
           {totalQty}
-        </div>
+        </button>
       </div>
+      {cartBar && <CartSidebar innerRef={ref} />}
     </nav>
   );
 };

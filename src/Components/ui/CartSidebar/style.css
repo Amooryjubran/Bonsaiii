@@ -1,0 +1,89 @@
+.cartSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: fixed;
+  right: 0;
+  top: 65px;
+  width: 450px;
+  background: #ffffff;
+  height: 100%;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+  padding: 50px;
+  animation-name: slideout;
+  animation-duration: 0.2s;
+  overflow-y: scroll;
+  height: -webkit-fill-available;
+}
+.productCardContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 20px;
+}
+.productCardContainer > .productImg {
+  height: 0;
+  padding: 0 0 50%;
+  width: 100px;
+  background-position: center 100%;
+  border-radius: 5px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.productCardInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 5px;
+}
+.productCardInfo > h1 {
+  font-size: 20px;
+}
+.productCardInfo > span {
+  font-size: 14px;
+}
+.productCardInfo > .inventory {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  align-items: center;
+}
+.inventory > button {
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  border: none;
+}
+.inventory > div {
+  color: black;
+}
+.inventory > button > svg {
+  font-size: 16px;
+  color: gray;
+}
+.cartEmpty {
+  display: flex;
+  gap: 5px;
+}
+
+.productDiscount > span:nth-child(2) {
+  color: black !important;
+}
+.removeFromCart {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+@keyframes slideout {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+
+  to {
+    width: 450px;
+    opacity: 1;
+  }
+}

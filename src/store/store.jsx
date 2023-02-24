@@ -20,6 +20,13 @@ const useCart = create(
           cartContent: mycart,
         }));
       },
+      decrementCart: ({ params, mycart }) => {
+        set((state) => ({
+          totalqty: state.totalqty - 1,
+          total: state.total + parseFloat(params.price),
+          cartContent: mycart,
+        }));
+      },
       clearCart: () => set({ totalqty: 0, total: 0, cartContent: [] }),
       removeFromCart: (params) =>
         set((state) => ({

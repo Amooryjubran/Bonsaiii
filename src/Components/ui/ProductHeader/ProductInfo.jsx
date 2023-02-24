@@ -1,10 +1,13 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import Rating from "@mui/material/Rating";
 import { styled } from "@mui/material/styles";
 import Skeleton from "@/utils/Skeleton";
 import useCart from "@/store/store";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 export default function ProductInfo({ props }) {
+  const [btn, setBtn] = useState("Add To Cart");
   const addTocart = useCart((state) => state.addTocart);
   const updatecart = useCart((state) => state.updatecart);
   const mycart = useCart((state) => state.cartContent);
@@ -52,17 +55,24 @@ export default function ProductInfo({ props }) {
               <FavoriteBorderIcon />
             </button>
             <button
-              onClick={() =>
-                addProduct({
-                  id: props.id,
-                  name: props.name,
-                  price: props.price,
-                  quantity: 1,
-                })
-              }
+              onClick={() => {
+                setBtn(<CircularProgress size="16px" color="inherit" />);
+                setTimeout(() => {
+                  addProduct({
+                    id: props.id,
+                    name: props.name,
+                    price: props.price,
+                    discount: props?.discount,
+                    img: props.image,
+                    desc: props.desc,
+                    quantity: 1,
+                  });
+                  setBtn("Add To Cart");
+                }, 500);
+              }}
               className="productBuy"
             >
-              Buy Now
+              {btn}
             </button>
             <div className="productDiscount">
               <span className={props.discount && "discounted"}>

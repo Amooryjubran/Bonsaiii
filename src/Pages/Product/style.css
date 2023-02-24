@@ -71,6 +71,10 @@
   padding: 10px 0;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  height: 40px;
+}
+.productBuy > span {
+  height: 16px;
 }
 .productBuy:hover {
   background-color: white;
