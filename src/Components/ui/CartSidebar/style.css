@@ -22,6 +22,7 @@
   padding: 5px 10px;
   border-radius: 30px;
   font-size: 14px;
+  height: auto;
 }
 .cartSidebar > img {
   max-height: 150px;
@@ -97,6 +98,10 @@
   gap: 20px;
   border-top: 1px solid lightgray;
   padding: 10px;
+}
+.subTotal {
+  display: flex;
+  gap: 5px;
 }
 @keyframes slideout {
   from {

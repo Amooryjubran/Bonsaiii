@@ -11,7 +11,6 @@ export default function ProductCard({ props }) {
 
   const addProduct = (params) => {
     const product = mycart.findIndex((item) => item.id === params.id);
-    console.log(params);
     if (product !== -1) {
       mycart[product].quantity++;
       updatecart({ params, mycart });
@@ -40,10 +39,10 @@ export default function ProductCard({ props }) {
               removeProduct({
                 id: id,
                 name: name,
-                price: price,
+                price: Math.round(price * 100) / 100,
                 img: img,
                 desc: desc,
-                discount: discount,
+                discount: Math.round(discount * 100) / 100,
                 quantity: 1,
               })
             }
@@ -56,11 +55,10 @@ export default function ProductCard({ props }) {
               addProduct({
                 id: id,
                 name: name,
-                price: price,
+                price: Math.round(price * 100) / 100,
                 img: img,
                 desc: desc,
-                discount: discount,
-
+                discount: Math.round(discount * 100) / 100,
                 quantity: 1,
               })
             }
@@ -69,8 +67,12 @@ export default function ProductCard({ props }) {
           </button>
         </div>
         <div className="productDiscount">
-          <span className={props.discount && "discounted"}>${props.price}</span>
-          {props.discount && <span>${props.discount}</span>}
+          <span className={props.discount && "discounted"}>
+            ${Math.round(props.price * 100) / 100}
+          </span>
+          {props.discount && (
+            <span>${Math.round(props.discount * 100) / 100}</span>
+          )}
         </div>
         <button
           className="removeFromCart"
@@ -78,10 +80,10 @@ export default function ProductCard({ props }) {
             removeFromCart({
               id: id,
               name: name,
-              price: price,
+              price: Math.round(price * 100) / 100,
               img: img,
               desc: desc,
-              discount: discount,
+              discount: Math.round(discount * 100) / 100,
               quantity: quantity,
             })
           }

@@ -20,7 +20,6 @@ export default function index({ innerRef, setCartBar }) {
     setCart(cart);
     setTotal(total);
   }, [cart]);
-  console.log(total);
   return (
     <div className="cartSidebar" ref={innerRef}>
       {!mycart.length ? (
@@ -29,7 +28,7 @@ export default function index({ innerRef, setCartBar }) {
             <span>Your Cart is</span>
             <strong>Empty</strong>
           </div>
-          {/* <img src={EmptyShoppingCart} alt="empty-cart" /> */}
+          <img src={EmptyShoppingCart} alt="empty-cart" />
           <Link
             className="shopLink"
             to="/shop"

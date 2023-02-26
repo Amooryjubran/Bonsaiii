@@ -1,8 +1,8 @@
 export default function SubTotal({ total }) {
   return (
-    <div>
+    <div className="subTotal">
       <span>Your Subtotal is</span>
-      <span>{Math.round(total * 100) / 100}</span>
+      <strong>${Math.round(total * 100) / 100}</strong>
     </div>
   );
 }

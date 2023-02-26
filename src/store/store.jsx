@@ -1,5 +1,7 @@
 import create from "zustand";
 import { persist } from "zustand/middleware";
+import { roundTo } from "round-to";
+
 const useCart = create(
   persist(
     (set, get) => ({
@@ -9,27 +11,33 @@ const useCart = create(
       addTocart: (params) => {
         set((state) => ({
           totalqty: state.totalqty + 1,
-          total:
+          total: roundTo(
             state.total +
-            parseFloat(params.discount ? params.discount : params.price),
+              parseFloat(params.discount ? params.discount : params.price),
+            2
+          ),
           cartContent: [...state.cartContent, params],
         }));
       },
       updatecart: ({ params, mycart }) => {
         set((state) => ({
           totalqty: state.totalqty + 1,
-          total:
+          total: roundTo(
             state.total +
-            parseFloat(params.discount ? params.discount : params.price),
+              parseFloat(params.discount ? params.discount : params.price),
+            2
+          ),
           cartContent: mycart,
         }));
       },
       decrementCart: ({ params, mycart }) => {
         set((state) => ({
           totalqty: state.totalqty - 1,
-          total:
+          total: roundTo(
             state.total -
-            parseFloat(params.discount ? params.discount : params.price),
+              parseFloat(params.discount ? params.discount : params.price),
+            2
+          ),
           cartContent: mycart,
         }));
       },
@@ -37,9 +45,9 @@ const useCart = create(
       removeFromCart: (params) =>
         set((state) => ({
           total:
-            state.total - params.discount
-              ? params.discount
-              : params.price * params.quantity,
+            state.total -
+            parseFloat(params.discount ? params.discount : params.price) *
+              params.quantity,
           totalqty: state.totalqty - params.quantity,
           cartContent: state.cartContent.filter(
             (item) => item.id !== params.id
