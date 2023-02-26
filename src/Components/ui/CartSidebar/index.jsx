@@ -46,6 +46,13 @@ export default function index({ innerRef, setCartBar }) {
             <ProductCard props={cart} key={index} />
           ))}
           <SubTotal total={total} />
+          <Link
+            className="shopLink"
+            to="/checkout"
+            onClick={() => setCartBar(false)}
+          >
+            Checkout
+          </Link>
         </Fragment>
       )}
       <div className="whatYouLike">

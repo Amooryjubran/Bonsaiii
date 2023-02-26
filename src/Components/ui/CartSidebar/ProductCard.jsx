@@ -1,6 +1,8 @@
 import useCart from "@/store/store";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import { AddProduct } from "@/utils/AddProduct";
+import { RemoveProduct } from "@/utils/RemoveProduct";
 export default function ProductCard({ props }) {
   const { id, img, name, price, quantity, desc, discount } = props;
   const addTocart = useCart((state) => state.addTocart);
@@ -10,21 +12,10 @@ export default function ProductCard({ props }) {
   const removeFromCart = useCart((state) => state.removeFromCart);
 
   const addProduct = (params) => {
-    const product = mycart.findIndex((item) => item.id === params.id);
-    if (product !== -1) {
-      mycart[product].quantity++;
-      updatecart({ params, mycart });
-    } else {
-      addTocart(params);
-    }
+    AddProduct(params, mycart, updatecart, addTocart);
   };
   const removeProduct = (params) => {
-    const product = mycart.findIndex((item) => item.id === params.id);
-    if (mycart[product].quantity == 1) return;
-    if (product !== -1) {
-      mycart[product].quantity--;
-      decrementCart({ params, mycart });
-    }
+    RemoveProduct(params, mycart, decrementCart);
   };
   return (
     <div className="productCardContainer">
