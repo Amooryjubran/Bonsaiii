@@ -1,3 +1,6 @@
+import { Fragment, useState } from "react";
+import { useTimeout } from "@/hooks/useTimeout";
+import Skeleton from "@/utils/Skeleton";
 import useCart from "@/store/store";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -10,6 +13,10 @@ export default function ProductCard({ props }) {
   const decrementCart = useCart((state) => state.decrementCart);
   const mycart = useCart((state) => state.cartContent);
   const removeFromCart = useCart((state) => state.removeFromCart);
+  const [loader, setLoader] = useState(false);
+  useTimeout(() => {
+    setLoader(true);
+  }, 2000);
 
   const addProduct = (params) => {
     AddProduct(params, mycart, updatecart, addTocart);
@@ -23,80 +30,96 @@ export default function ProductCard({ props }) {
   return (
     <div className="productCardContainer cart">
       <div className="productParent">
-        <div
-          className="productImg cart"
-          style={{ backgroundImage: `url(${img})` }}
-        />
+        {loader ? (
+          <div
+            className="productImg cart"
+            style={{ backgroundImage: `url(${img})` }}
+          />
+        ) : (
+          <Skeleton width="150px" height="100%" />
+        )}
         <div className="productCardInfo cart">
-          <h1>{name}</h1>
-          <span>{desc}</span>
-          <span>Limited Inventory</span>
+          <h1>{loader ? name : <Skeleton width="100px" />}</h1>
+          <span>{loader ? desc : <Skeleton width="200px" />}</span>
+          <span>
+            {loader ? "Limited Inventory" : <Skeleton width="150px" />}
+          </span>
 
-          <div className="productDiscount">
-            <span className={props.discount && "discounted"}>
-              <strong>${Math.round(props.price * 100) / 100}/piece</strong>
-            </span>
-            {props.discount && (
-              <span>
-                <strong>${Math.round(props.discount * 100) / 100}/piece</strong>
+          {loader ? (
+            <div className="productDiscount">
+              <span className={props.discount && "discounted"}>
+                <strong>${Math.round(props.price * 100) / 100}/piece</strong>
               </span>
-            )}
-          </div>
-          <div className="inventoryParent">
-            <div className="inventory">
+              {props.discount && (
+                <span>
+                  <strong>
+                    ${Math.round(props.discount * 100) / 100}/piece
+                  </strong>
+                </span>
+              )}
+            </div>
+          ) : (
+            <Skeleton width="150px" height="2r0px" />
+          )}
+          {loader ? (
+            <div className="inventoryParent">
+              <div className="inventory">
+                <button
+                  onClick={() =>
+                    removeProduct({
+                      id: id,
+                      name: name,
+                      price: Math.round(price * 100) / 100,
+                      img: img,
+                      desc: desc,
+                      discount: Math.round(discount * 100) / 100,
+                      quantity: 1,
+                    })
+                  }
+                >
+                  <RemoveIcon />
+                </button>
+                <div>{quantity}</div>
+                <button
+                  onClick={() =>
+                    addProduct({
+                      id: id,
+                      name: name,
+                      price: Math.round(price * 100) / 100,
+                      img: img,
+                      desc: desc,
+                      discount: Math.round(discount * 100) / 100,
+                      quantity: 1,
+                    })
+                  }
+                >
+                  <AddIcon />
+                </button>
+              </div>
               <button
+                className="removeFromCart cart"
                 onClick={() =>
-                  removeProduct({
+                  removeFromCart({
                     id: id,
                     name: name,
                     price: Math.round(price * 100) / 100,
                     img: img,
                     desc: desc,
                     discount: Math.round(discount * 100) / 100,
-                    quantity: 1,
+                    quantity: quantity,
                   })
                 }
               >
-                <RemoveIcon />
-              </button>
-              <div>{quantity}</div>
-              <button
-                onClick={() =>
-                  addProduct({
-                    id: id,
-                    name: name,
-                    price: Math.round(price * 100) / 100,
-                    img: img,
-                    desc: desc,
-                    discount: Math.round(discount * 100) / 100,
-                    quantity: 1,
-                  })
-                }
-              >
-                <AddIcon />
+                Remove Product
               </button>
             </div>
-            <button
-              className="removeFromCart cart"
-              onClick={() =>
-                removeFromCart({
-                  id: id,
-                  name: name,
-                  price: Math.round(price * 100) / 100,
-                  img: img,
-                  desc: desc,
-                  discount: Math.round(discount * 100) / 100,
-                  quantity: quantity,
-                })
-              }
-            >
-              Remove Product
-            </button>
-          </div>
+          ) : (
+            <Skeleton width="350px" />
+          )}
         </div>
       </div>
       <div className="productTotal">
-        <strong>${totalPrice}</strong>
+        {loader ? <strong>${totalPrice}</strong> : <Skeleton width="20px" />}
       </div>
     </div>
   );
