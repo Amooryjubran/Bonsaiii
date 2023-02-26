@@ -13,6 +13,7 @@ export default function ProductInfo({ props }) {
   const mycart = useCart((state) => state.cartContent);
   const addProduct = (params) => {
     const product = mycart.findIndex((item) => item.id === params.id);
+    console.log(params);
     if (product !== -1) {
       mycart[product].quantity++;
       updatecart({ params, mycart });
@@ -62,7 +63,7 @@ export default function ProductInfo({ props }) {
                     id: props.id,
                     name: props.name,
                     price: props.price,
-                    discount: props?.discount,
+                    discount: props.discount,
                     img: props.image,
                     desc: props.desc,
                     quantity: 1,

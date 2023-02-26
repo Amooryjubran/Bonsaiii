@@ -15,6 +15,18 @@
   overflow-y: scroll;
   height: -webkit-fill-available;
 }
+.shopLink {
+  background-color: rgb(31, 31, 31);
+  color: white;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 30px;
+  font-size: 14px;
+}
+.cartSidebar > img {
+  max-height: 150px;
+  object-fit: contain;
+}
 .productCardContainer {
   display: flex;
   flex-direction: row;
@@ -75,6 +87,16 @@
   border: none;
   padding: 5px 10px;
   cursor: pointer;
+}
+.cartSidebar .slider {
+  max-width: none !important;
+}
+.whatYouLike {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-top: 1px solid lightgray;
+  padding: 10px;
 }
 @keyframes slideout {
   from {

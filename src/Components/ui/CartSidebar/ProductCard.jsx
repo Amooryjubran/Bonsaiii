@@ -2,7 +2,7 @@ import useCart from "@/store/store";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 export default function ProductCard({ props }) {
-  const { id, img, name, price, quantity, desc } = props;
+  const { id, img, name, price, quantity, desc, discount } = props;
   const addTocart = useCart((state) => state.addTocart);
   const updatecart = useCart((state) => state.updatecart);
   const decrementCart = useCart((state) => state.decrementCart);
@@ -11,6 +11,7 @@ export default function ProductCard({ props }) {
 
   const addProduct = (params) => {
     const product = mycart.findIndex((item) => item.id === params.id);
+    console.log(params);
     if (product !== -1) {
       mycart[product].quantity++;
       updatecart({ params, mycart });
@@ -42,6 +43,7 @@ export default function ProductCard({ props }) {
                 price: price,
                 img: img,
                 desc: desc,
+                discount: discount,
                 quantity: 1,
               })
             }
@@ -57,6 +59,8 @@ export default function ProductCard({ props }) {
                 price: price,
                 img: img,
                 desc: desc,
+                discount: discount,
+
                 quantity: 1,
               })
             }
@@ -77,6 +81,7 @@ export default function ProductCard({ props }) {
               price: price,
               img: img,
               desc: desc,
+              discount: discount,
               quantity: quantity,
             })
           }

@@ -2,12 +2,12 @@ import Slider from "react-slick";
 import Skeleton from "../../utils/Skeleton";
 import ImageCard from "../ui/ImageCard";
 import "./style.css";
-export default function Slide({ props }) {
+export default function Slide({ props, small }) {
   var settings = {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 3.5,
+    slidesToShow: small ? 1.5 : 3.5,
     slidesToScroll: 1,
     initialSlide: 0,
     arrows: true,

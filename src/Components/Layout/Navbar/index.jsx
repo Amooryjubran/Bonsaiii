@@ -41,7 +41,7 @@ const Navbar = () => {
           {totalQty}
         </button>
       </div>
-      {cartBar && <CartSidebar innerRef={ref} />}
+      {cartBar && <CartSidebar innerRef={ref} setCartBar={setCartBar} />}
     </nav>
   );
 };

@@ -9,28 +9,37 @@ const useCart = create(
       addTocart: (params) => {
         set((state) => ({
           totalqty: state.totalqty + 1,
-          total: state.total + parseFloat(params.price),
+          total:
+            state.total +
+            parseFloat(params.discount ? params.discount : params.price),
           cartContent: [...state.cartContent, params],
         }));
       },
       updatecart: ({ params, mycart }) => {
         set((state) => ({
           totalqty: state.totalqty + 1,
-          total: state.total + parseFloat(params.price),
+          total:
+            state.total +
+            parseFloat(params.discount ? params.discount : params.price),
           cartContent: mycart,
         }));
       },
       decrementCart: ({ params, mycart }) => {
         set((state) => ({
           totalqty: state.totalqty - 1,
-          total: state.total + parseFloat(params.price),
+          total:
+            state.total -
+            parseFloat(params.discount ? params.discount : params.price),
           cartContent: mycart,
         }));
       },
       clearCart: () => set({ totalqty: 0, total: 0, cartContent: [] }),
       removeFromCart: (params) =>
         set((state) => ({
-          total: state.total - params.price * params.quantity,
+          total:
+            state.total - params.discount
+              ? params.discount
+              : params.price * params.quantity,
           totalqty: state.totalqty - params.quantity,
           cartContent: state.cartContent.filter(
             (item) => item.id !== params.id
