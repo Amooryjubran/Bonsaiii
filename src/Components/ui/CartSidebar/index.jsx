@@ -7,7 +7,7 @@ import useLockScroll from "@/hooks/useLockScroll";
 import { useQuery } from "@/hooks/useQuery";
 import Slider from "@/Components/Slider/Slider";
 import EmptyShoppingCart from "../../../assets/emptyShoppingCart.png";
-import SubTotal from "./subTotal";
+import SubTotal from "./SubTotal";
 export default function index({ innerRef, setCartBar }) {
   const { data } = useQuery("plants");
   const total = useCart((state) => state.total);
