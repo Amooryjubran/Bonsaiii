@@ -38,7 +38,7 @@ export default function index() {
           ))}
         </div>
         <div className="cartSide">
-          <CartSide />
+          <CartSide totalQty={totalqty} total={total} />
         </div>
       </div>
       <div className="sliderContainer cart">

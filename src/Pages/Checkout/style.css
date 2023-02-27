@@ -29,11 +29,10 @@
 }
 
 .cartSide {
-  width: 20%;
+  width: 25%;
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 0 15px 0;
 }
 
 .cartSection {
@@ -42,6 +41,7 @@
   display: flex;
   gap: 20px;
   flex-direction: column;
+  padding-bottom: 50px;
 }
 
 .cartDiscount {
@@ -59,6 +59,9 @@
 .cartDiscount > p {
   font-size: 14px;
   line-height: 1.6;
+}
+.cartDiscount > p > strong {
+  font-family: "Rubik", sans-serif;
 }
 
 .productImg.cart {
@@ -116,4 +119,116 @@
 }
 .sliderContainer.cart .plantCardContainer {
   padding: 0 0 150%;
+}
+
+.cartSideContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+}
+.paymentBtns {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.paymentBtns > a {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+}
+.paymentBtns > span {
+  text-align: center;
+}
+
+.paymentLink {
+  background-color: black;
+  color: white;
+  box-shadow: 0px 8px 15px rgba(115, 115, 115, 0.638);
+  font-size: 12px;
+}
+.paymentSquare {
+  color: black;
+  border: 1px solid black;
+}
+.paymentSquare > img {
+  height: 15px;
+}
+
+.orderSummary {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 20px 0;
+}
+.orderSummary > h1 {
+  font-size: 16px;
+  font-family: "Rubik", sans-serif;
+  letter-spacing: 1px;
+  margin: 10px 0;
+}
+.orderDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-bottom: 1px solid lightgray;
+  padding: 0 0 20px;
+}
+.orderDetails > div {
+  display: flex;
+  justify-content: space-between;
+}
+.orderDetails > div > span {
+  font-size: 14px;
+}
+.orderDetails > div > h1 {
+  font-size: 14px;
+  font-family: "Rubik", sans-serif;
+  letter-spacing: 1px;
+}
+.codeAddedFinal {
+  display: flex;
+  gap: 10px;
+}
+.codeAddedFinal > h1 {
+  font-size: 14px;
+  font-family: "Rubik", sans-serif;
+  letter-spacing: 1px;
+}
+
+.orderDiscount {
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.64);
+  padding: 10px 15px;
+}
+.orderDiscount > form {
+  height: 100%;
+  width: 100%;
+}
+.orderDiscount > form > input {
+  height: 100%;
+  width: 90%;
+  border: none;
+  outline: none;
+  cursor: text;
+}
+.orderDiscount > form > svg {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  font-size: 16px;
+}
+.orderSummary > span,
+.codeAddedTotal {
+  font-size: 12px;
+  color: red;
+}
+.codeAddedTotal {
+  text-decoration: line-through;
+  text-align: center;
 }
