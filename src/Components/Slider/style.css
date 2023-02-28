@@ -103,3 +103,15 @@
 .slick-prev:hover {
   background-color: white;
 }
+
+@media (max-width: 1028px) {
+  .SliderContainer {
+    margin-top: 0 !important;
+  }
+  .sliderCategories {
+    left: -20px !important;
+  }
+  .slider {
+    max-width: 90%;
+  }
+}
