@@ -3,6 +3,9 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { AddProduct } from "@/utils/AddProduct";
 import { RemoveProduct } from "@/utils/RemoveProduct";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function ProductCard({ props }) {
   const { id, img, name, price, quantity, desc, discount } = props;
   const addTocart = useCart((state) => state.addTocart);
@@ -11,6 +14,18 @@ export default function ProductCard({ props }) {
   const mycart = useCart((state) => state.cartContent);
   const removeFromCart = useCart((state) => state.removeFromCart);
 
+  const notify = (props) => {
+    toast(`🛒 ${props} Removed Successfully`, {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
   const addProduct = (params) => {
     AddProduct(params, mycart, updatecart, addTocart);
   };
@@ -67,7 +82,7 @@ export default function ProductCard({ props }) {
         </div>
         <button
           className="removeFromCart"
-          onClick={() =>
+          onClick={() => {
             removeFromCart({
               id: id,
               name: name,
@@ -76,12 +91,14 @@ export default function ProductCard({ props }) {
               desc: desc,
               discount: Math.round(discount * 100) / 100,
               quantity: quantity,
-            })
-          }
+            });
+            notify(name);
+          }}
         >
           Remove From Cart
         </button>
       </div>
+      <ToastContainer />
     </div>
   );
 }

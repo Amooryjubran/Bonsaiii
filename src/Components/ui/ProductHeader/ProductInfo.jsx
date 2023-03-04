@@ -1,16 +1,30 @@
 import { Fragment, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import Rating from "@mui/material/Rating";
 import { styled } from "@mui/material/styles";
 import Skeleton from "@/utils/Skeleton";
 import useCart from "@/store/store";
 import CircularProgress from "@mui/material/CircularProgress";
-import Box from "@mui/material/Box";
+import "react-toastify/dist/ReactToastify.css";
 export default function ProductInfo({ props }) {
   const [btn, setBtn] = useState("Add To Cart");
   const addTocart = useCart((state) => state.addTocart);
   const updatecart = useCart((state) => state.updatecart);
   const mycart = useCart((state) => state.cartContent);
+  const notify = (props) => {
+    toast(`🛒 ${props} Added Successfully`, {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+
   const addProduct = (params) => {
     const product = mycart.findIndex((item) => item.id === params.id);
     if (product !== -1) {
@@ -68,6 +82,7 @@ export default function ProductInfo({ props }) {
                     quantity: 1,
                   });
                   setBtn("Add To Cart");
+                  notify(props.name);
                 }, 500);
               }}
               className="productBuy"
@@ -81,6 +96,8 @@ export default function ProductInfo({ props }) {
               {props.discount && <span>${props.discount}</span>}
             </div>
           </div>
+
+          <ToastContainer />
         </Fragment>
       ) : (
         Array(6)

@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { useTimeout } from "@/hooks/useTimeout";
 import Skeleton from "@/utils/Skeleton";
 import useCart from "@/store/store";
@@ -6,6 +6,9 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { AddProduct } from "@/utils/AddProduct";
 import { RemoveProduct } from "@/utils/RemoveProduct";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function ProductCard({ props }) {
   const { id, img, name, price, quantity, desc, discount } = props;
   const addTocart = useCart((state) => state.addTocart);
@@ -17,7 +20,18 @@ export default function ProductCard({ props }) {
   useTimeout(() => {
     setLoader(true);
   }, 2000);
-
+  const notify = (props) => {
+    toast(`🛒 ${props} Removed Successfully`, {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
   const addProduct = (params) => {
     AddProduct(params, mycart, updatecart, addTocart);
   };
@@ -65,7 +79,7 @@ export default function ProductCard({ props }) {
             <div className="inventoryParent">
               <div className="inventory">
                 <button
-                  onClick={() =>
+                  onClick={() => {
                     removeProduct({
                       id: id,
                       name: name,
@@ -74,8 +88,8 @@ export default function ProductCard({ props }) {
                       desc: desc,
                       discount: Math.round(discount * 100) / 100,
                       quantity: 1,
-                    })
-                  }
+                    });
+                  }}
                 >
                   <RemoveIcon />
                 </button>
@@ -98,7 +112,7 @@ export default function ProductCard({ props }) {
               </div>
               <button
                 className="removeFromCart cart"
-                onClick={() =>
+                onClick={() => {
                   removeFromCart({
                     id: id,
                     name: name,
@@ -107,8 +121,9 @@ export default function ProductCard({ props }) {
                     desc: desc,
                     discount: Math.round(discount * 100) / 100,
                     quantity: quantity,
-                  })
-                }
+                  });
+                  notify(name);
+                }}
               >
                 Remove Product
               </button>
@@ -121,6 +136,7 @@ export default function ProductCard({ props }) {
       <div className="productTotal">
         {loader ? <strong>${totalPrice}</strong> : <Skeleton width="20px" />}
       </div>
+      <ToastContainer />
     </div>
   );
 }

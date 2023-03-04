@@ -115,3 +115,15 @@
 .productFilterContainer > button > svg {
   font-size: 12px;
 }
+.Toastify__progress-bar-theme--light {
+  background: linear-gradient(
+    to right,
+    #108524,
+    #0c5d1acb,
+    #0c5d1a9d,
+    #128125,
+    #16a52e,
+    #14b42f,
+    #1ee23e
+  ) !important;
+}
