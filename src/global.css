@@ -31,6 +31,11 @@ body {
   background-position: 0 0;
   animation: shine 1s infinite;
 }
+.blur #root > div {
+  filter: blur(5px);
+  transition: all 0.2s;
+  background-color: hsla(0, 0%, 7%, 0.36);
+}
 @keyframes shine {
   to {
     background-position: 100% 0, 0 0;

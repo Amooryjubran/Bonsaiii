@@ -15,7 +15,13 @@ nav {
   align-items: baseline;
   gap: 20px;
 }
-
+.searchIcon {
+  cursor: pointer;
+  background-color: transparent;
+  color: black;
+  border: none;
+  outline: none;
+}
 .navList > a {
   color: black;
   text-decoration: none;
