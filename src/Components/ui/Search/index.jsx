@@ -6,12 +6,10 @@ import SearchHeader from "./SearchHeader";
 import SearchSide from "./SearchSide";
 import SearchProducts from "./SearchProducts";
 import Skeleton from "@/utils/Skeleton";
-
 import "./style.css";
 
 export default function index({ search, setSearch, innerRef }) {
   const { data } = useQuery("plants");
-
   const [searchValue, setSearchValue] = useState("");
   useBodyClass("blur");
   useLockScroll();
@@ -36,7 +34,7 @@ export default function index({ search, setSearch, innerRef }) {
               ))
           )}
         </div>
-        <SearchProducts />
+        <SearchProducts data={data} setSearch={setSearch} />
       </div>
     </div>
   );

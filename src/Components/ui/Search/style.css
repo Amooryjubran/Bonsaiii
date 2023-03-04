@@ -3,6 +3,8 @@
   left: 0;
   top: 0;
   width: 100%;
+  overflow-y: scroll;
+  height: 100%;
   background-color: #ffffff;
   min-height: 300px;
   padding: 0 20px;
@@ -68,10 +70,11 @@
 }
 .searchSide > a {
   font-size: 12px;
+  height: auto;
 }
 .searchProducts {
   display: grid;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: repeat(5, auto);
   column-gap: 25px;
   row-gap: 30px;
   transition: all 0.5s;

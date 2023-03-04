@@ -6,15 +6,16 @@ import { styled } from "@mui/material/styles";
 
 export default function ProductCard(props) {
   const { name, image, price, stars, petFriendly, discount } = props.props;
-  const path = name.split(" ").join("+");
-
+  const path = props.search
+    ? `/shop/${name.split(" ").join("+")}`
+    : name.split(" ").join("+");
   const StyledRating = styled(Rating)({
     "& .MuiRating-iconFilled": {
       color: "#301934",
     },
   });
   return (
-    <Link to={path}>
+    <Link to={path} onClick={() => props.search && props.setSearch(false)}>
       <div className="productCard">
         <div
           style={{ backgroundImage: `url(${image})` }}
