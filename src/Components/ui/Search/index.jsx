@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useBodyClass from "@/hooks/useBodyClass";
 import useLockScroll from "@/hooks/useLockScroll";
 import { useQuery } from "@/hooks/useQuery";
@@ -11,9 +11,12 @@ import "./style.css";
 export default function index({ search, setSearch, innerRef }) {
   const { data } = useQuery("plants");
   const [searchValue, setSearchValue] = useState("");
+  const [filteredData, setFilteredData] = useState([]);
   useBodyClass("blur");
   useLockScroll();
-  if (!data) return <>Loading</>;
+  useEffect(() => {
+    setFilteredData(data);
+  }, [data]);
   return (
     <div className="searchParent" ref={innerRef}>
       <SearchHeader
@@ -21,6 +24,9 @@ export default function index({ search, setSearch, innerRef }) {
         setSearch={setSearch}
         searchValue={searchValue}
         setSearchValue={setSearchValue}
+        setFilteredData={setFilteredData}
+        filteredData={filteredData}
+        data={data}
       />
       <div className="searchWrapper">
         <div className="searchSide">
@@ -34,7 +40,11 @@ export default function index({ search, setSearch, innerRef }) {
               ))
           )}
         </div>
-        <SearchProducts data={data} setSearch={setSearch} />
+        <SearchProducts
+          data={filteredData}
+          setSearch={setSearch}
+          searchValue={searchValue}
+        />
       </div>
     </div>
   );

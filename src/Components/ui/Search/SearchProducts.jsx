@@ -1,7 +1,13 @@
 import Skeleton from "@/utils/Skeleton";
 import ProductCard from "@/Components/ui/ProductCard";
 
-export default function SearchProducts({ data, setSearch }) {
+export default function SearchProducts({ data, setSearch, searchValue }) {
+  if (searchValue.length >= 1 && !data.length)
+    return (
+      <span>
+        There is no product <strong>`{searchValue}`</strong>
+      </span>
+    );
   return (
     <div className="searchProducts">
       {!!data.length
