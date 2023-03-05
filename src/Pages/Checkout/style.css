@@ -232,3 +232,27 @@
   text-decoration: line-through;
   text-align: center;
 }
+
+@media (max-width: 1028px) {
+  .cartContainer {
+    flex-direction: column;
+  }
+  .cartSection,
+  .cartSide {
+    width: 100%;
+  }
+  .cartDiscount {
+    max-width: none;
+  }
+  .productCardContainer.cart {
+    max-width: none;
+    flex-direction: column-reverse;
+  }
+  .productParent {
+    flex-direction: column;
+  }
+  .productImg.cart {
+    width: auto;
+    padding: 0 0 50%;
+  }
+}
