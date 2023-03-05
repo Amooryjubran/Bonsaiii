@@ -46,6 +46,7 @@ export default function MobileNav({
           <div className="links">
             {data.map((route, index) => (
               <Link
+                onClick={() => setMenu(false)}
                 to={route.path === "Bonsaiii" ? "/" : route.path}
                 key={index}
               >

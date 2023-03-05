@@ -114,4 +114,11 @@
   .slider {
     max-width: 90%;
   }
+  .plantCardDescreption {
+    height: auto;
+    padding: 15px 25px;
+  }
+  .plantCard:hover .plantCardDescreption {
+    opacity: 0;
+  }
 }

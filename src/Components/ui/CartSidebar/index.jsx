@@ -8,12 +8,17 @@ import { useQuery } from "@/hooks/useQuery";
 import Slider from "@/Components/Slider/Slider";
 import EmptyShoppingCart from "../../../assets/emptyShoppingCart.png";
 import SubTotal from "./SubTotal";
+import CloseIcon from "@mui/icons-material/Close";
+import useMediaQuery from "@mui/material/useMediaQuery";
+
 export default function index({ innerRef, setCartBar }) {
   const { data } = useQuery("plants");
   const total = useCart((state) => state.total);
   const cart = useCart((state) => state.cartContent);
   const [mycart, setCart] = useState([]);
   const [mytotal, setTotal] = useState();
+  const matches = useMediaQuery("(max-width:1028px)");
+
   useLockScroll();
 
   useEffect(() => {
@@ -22,6 +27,13 @@ export default function index({ innerRef, setCartBar }) {
   }, [cart]);
   return (
     <div className="cartSidebar" ref={innerRef}>
+      {matches && (
+        <div className="mobileSideBarClose">
+          <button onClick={() => setCartBar(false)}>
+            <CloseIcon />
+          </button>
+        </div>
+      )}
       {!mycart.length ? (
         <Fragment>
           <div className="cartEmpty">
