@@ -51,6 +51,7 @@ nav {
     border: none;
     outline: none;
     cursor: pointer;
+    color: black;
   }
   .mobileNav {
     position: fixed;

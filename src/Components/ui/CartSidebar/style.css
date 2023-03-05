@@ -108,6 +108,7 @@
   .cartSidebar {
     width: 100%;
     top: 0;
+    height: 100%;
     animation-name: slideoutMobile;
     animation-duration: 0.2s;
   }
@@ -120,6 +121,10 @@
     border: none;
     outline: none;
     cursor: pointer;
+    color: black;
+  }
+  .productCardContainer > .productImg {
+    width: 30%;
   }
 }
 @keyframes slideout {
