@@ -68,7 +68,12 @@
 .searchSide > h1 {
   font-size: 16px;
 }
-.searchSide > a {
+.searchSide > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.searchSide > ul > a {
   font-size: 12px;
   height: auto;
 }
@@ -79,6 +84,49 @@
   row-gap: 30px;
   transition: all 0.5s;
   width: 80%;
+}
+@media (max-width: 1028px) {
+  .searchWrapper {
+    margin: 20px 0;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+  }
+  .searchSide {
+    width: 100%;
+    padding: 0;
+  }
+  .searchParent > nav {
+    flex-direction: column-reverse;
+  }
+  .searchParent > nav > a {
+    display: none;
+  }
+  .searchContainer {
+    width: 100%;
+  }
+  .searchProducts {
+    grid-template-columns: repeat(2, auto);
+    width: 100%;
+  }
+  .searchSide > h1 {
+    text-align: center;
+  }
+  .searchSide > ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 0;
+  }
+  .searchSide > ul > a {
+    border: 1px solid lightgray;
+    padding: 2px 7px;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+  .productImage {
+    padding: 0 0 75%;
+  }
 }
 @keyframes slideout {
   from {
