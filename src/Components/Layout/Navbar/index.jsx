@@ -9,6 +9,8 @@ import useCart from "@/store/store";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import SearchIcon from "@mui/icons-material/Search";
 import useClickOutside from "@/hooks/useClickOutside";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import MobileNav from "./MobileNav";
 
 const Navbar = () => {
   const ref = useRef();
@@ -20,10 +22,24 @@ const Navbar = () => {
   const totalqty = useCart((state) => state.totalqty);
   useClickOutside(ref, () => setCartBar(false));
   useClickOutside(secondRef, () => setSearch(false));
-
+  const matches = useMediaQuery("(max-width:1028px)");
   useEffect(() => {
     setTotalQty(totalqty);
   }, [totalqty]);
+
+  if (matches)
+    return (
+      <MobileNav
+        data={Routes}
+        setSearch={setSearch}
+        setCartBar={setCartBar}
+        totalQty={totalQty}
+        cartBar={cartBar}
+        innerRef={ref}
+        search={search}
+        secondRef={secondRef}
+      />
+    );
   return (
     <nav>
       <div className="navList">

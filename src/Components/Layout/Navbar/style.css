@@ -39,3 +39,50 @@ nav {
   border: none;
   color: black;
 }
+
+@media (max-width: 1028px) {
+  .mobileNavBtns {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .mobileNavBtns > button {
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  .mobileNav {
+    position: fixed;
+    right: 0;
+    top: 0;
+    background-color: white;
+    width: 70%;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    box-shadow: rgb(0 0 0 / 70%) 0rem 0rem 100vh 100vh;
+    justify-content: flex-start;
+    padding: 100px 50px;
+    gap: 25px;
+  }
+  .mobileNav > span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+  }
+  .mobileNav > span > img {
+    max-width: 20px;
+    position: absolute;
+    left: -30px;
+  }
+  .mobileNav > .links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .mobileNav > .links > a {
+    height: auto;
+  }
+}
