@@ -135,7 +135,8 @@
   gap: 15px;
 }
 
-.paymentBtns > a {
+.paymentBtns > a,
+.paymentBtns > button {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -151,10 +152,16 @@
   color: white;
   box-shadow: 0px 8px 15px rgba(115, 115, 115, 0.638);
   font-size: 12px;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 .paymentSquare {
   color: black;
   border: 1px solid black;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
 }
 .paymentSquare > img {
   height: 15px;
@@ -231,6 +238,24 @@
 .codeAddedTotal {
   text-decoration: line-through;
   text-align: center;
+}
+.paymentModal {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: fixed;
+  right: 0;
+  top: 68px;
+  width: 450px;
+  background: #ffffff;
+  height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.227) 0rem 0rem 100vh 150vh;
+  padding: 50px;
+  animation-name: slideout;
+  animation-duration: 0.2s;
+  overflow-y: scroll;
+  height: -webkit-fill-available;
+  z-index: 999999;
 }
 
 @media (max-width: 1028px) {
