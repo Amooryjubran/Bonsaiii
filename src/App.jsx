@@ -8,8 +8,11 @@ import Checkout from "@/Pages/Checkout";
 import Product from "@/Pages/Product";
 import ScrollToTop from "@/helper/ScrollTopTop";
 import Scroller from "@/utils/Scroller";
+import useGoogleAnalytics from "@/hooks/useGoogleAnalytics";
 
 function App() {
+  useGoogleAnalytics();
+
   return (
     <Fragment>
       <Navbar />
