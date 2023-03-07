@@ -4,32 +4,32 @@ export default function PaymentModal({ innerRef, setPaymentModal }) {
   useLockScroll();
   return (
     <div className="paymentModal" ref={innerRef}>
-      <form>
+      <form action="/form/submit" method="get" autocomplete="off">
         <h1>Payment Details</h1>
-        <p>Still In Progress :(</p>
-        <input type="text" placeholder="Name On Card" />
-        <div>
-          <input type="text" placeholder="💳  Card Number" />
-          <input type="text" placeholder="12/2025" />
+        <input type="email" placeholder="Name On Card" />
+        <div className="paymenModalCreditCard">
+          <input type="email" placeholder="💳  Card Number" />
+          <input type="email" placeholder="12/2025" />
           <input type="number" placeholder="CVV" />
         </div>
         <h1>Billing Adress</h1>
-        <div>
-          <input type="text" placeholder="Street Adress" />
-          <input type="text" placeholder="City" />
+        <div className="paymenModalAdress">
+          <input type="email" placeholder="Street Adress" />
+          <input type="email" placeholder="City" />
         </div>
-        <div>
-          <input type="text" placeholder="State/Province" />
-          <input type="text" placeholder="Zip Code" />
+        <div className="paymenModalAdress">
+          <input type="email" placeholder="State/Province" />
+          <input type="email" placeholder="Zip Code" />
         </div>
-        <div>
+        <span>*Still In Progress 😢</span>
+        <div className="paymentModalBTNS">
           <button
             className="cancelPayment"
             onClick={() => setPaymentModal(false)}
           >
             Cancel
           </button>
-          <button className="Conform Payment">Pay</button>
+          <button className="confirmPayment">Pay</button>
         </div>
       </form>
     </div>
