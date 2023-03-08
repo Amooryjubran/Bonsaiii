@@ -334,6 +334,7 @@
   }
   .paymentModal {
     top: 0;
+    height: 100%;
   }
   .cartDiscount {
     max-width: none;
