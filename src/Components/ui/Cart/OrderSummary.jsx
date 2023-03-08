@@ -62,7 +62,9 @@ export default function OrderSummary({ totalQty, total, loader, setLoader }) {
               }}
             >
               <input onChange={(e) => setCode(e.target.value)} type="text" />
-              <AddIcon />
+              <button>
+                <AddIcon />
+              </button>
             </form>
           </div>
           {isCorrect && <span>DISOCUNT ADDED</span>}

@@ -224,10 +224,15 @@
   outline: none;
   cursor: text;
 }
-.orderDiscount > form > svg {
+.orderDiscount > form > button {
   position: absolute;
   right: 10px;
   top: 12px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.orderDiscount > form > button > svg {
   font-size: 16px;
 }
 .orderSummary > span,
