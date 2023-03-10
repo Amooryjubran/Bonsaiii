@@ -6,7 +6,7 @@ export default function CartHeader({ total, totalQty }) {
   const [loader, setLoader] = useState(false);
   useTimeout(() => {
     setLoader(true);
-  }, 2000);
+  }, 1000);
   return (
     <div className="CartHeader">
       {loader ? (

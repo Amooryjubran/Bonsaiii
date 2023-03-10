@@ -5,7 +5,7 @@ export default function Discount() {
   const [loader, setLoader] = useState(false);
   useTimeout(() => {
     setLoader(true);
-  }, 2000);
+  }, 1000);
   return loader ? (
     <div className="cartDiscount">
       <h1>EXTRA 10% OFF PLANTS</h1>

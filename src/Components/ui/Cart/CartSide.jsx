@@ -16,7 +16,7 @@ export default function CartSide({ totalQty, total }) {
 
   useTimeout(() => {
     setLoader(true);
-  }, 2000);
+  }, 1000);
   return (
     <div className="cartSideContainer">
       <div className="paymentBtns">

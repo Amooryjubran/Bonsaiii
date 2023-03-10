@@ -19,7 +19,7 @@ export default function ProductCard({ props }) {
   const [loader, setLoader] = useState(false);
   useTimeout(() => {
     setLoader(true);
-  }, 2000);
+  }, 1000);
   const notify = (props) => {
     toast(`🛒 ${props} Removed Successfully`, {
       position: "bottom-right",

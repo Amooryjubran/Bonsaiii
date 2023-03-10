@@ -11,7 +11,7 @@
   box-shadow: rgb(0 0 0 / 70%) 0rem 0rem 100vh 150vh;
   padding: 50px;
   animation-name: slideout;
-  animation-duration: 0.2s;
+  animation-duration: 0.05s;
   overflow-y: scroll;
   height: -webkit-fill-available;
 }
@@ -134,7 +134,7 @@
   }
 
   to {
-    width: 450px;
+    width: 100%;
     opacity: 1;
   }
 }
